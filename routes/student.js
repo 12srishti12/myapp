@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
  router.get('/:da-:ta', function(req, res, next) {
    console.log(req.params.da);
-   res.json({name:req.params.da+req.params.ta});
+   res.json({name:req.params.da + req.params.ta});
  });
 router.get('/:da', function(req, res, next) {
   console.log(req.params.da);
