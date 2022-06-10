@@ -35,5 +35,23 @@ router.post('/about', function(req, res, next) {
       // });
 res.json({"Name":req.body})
 });
+router.get('/data', function(req, res, next) {
+  console.log(req.query)
+  var sql = "INSERT INTO `k` (`name`, `college`) \
+  VALUES ('"+req.query.name+"', '"+req.query.college+"');"
+  console.log(sql)
+ con.connect()
+    con.query(sql, function (err, result) {
+      if (err) throw err;
+      console.log(result);
+
+    });
+    // var sql1 = "select * from `qqq`"
+    // con.query(sql1, function (err, result) {
+    //   if (err) throw err;
+    //   console.log(result);
+    // });
+res.json({"Name":req.query})
+});
 
 module.exports = router;
