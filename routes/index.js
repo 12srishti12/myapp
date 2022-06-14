@@ -39,7 +39,25 @@ router.post('/about', function(req, res, next) {
      
 
 });
+var pool        = mysql.createPool({
+  connectionLimit : 10, // default = 10
+  host            : 'easylearning.guru',
+  user            : 'kcc_student',
+  password        : 'Kccitm.edu.in1',
+  database        : 'kccStudent'
+});
 
+router.get('/read', function (req, res) {
+  pool.getConnection(function (err, connection) {
+      connection.query("SELECT * FROM srishti", function (err, rows) {
+          connection.release();
+          if (err) throw err;
+
+          console.log(rows.length);
+          res.send(JSON.stringify(rows));
+      });
+  });
+});
    
 
 
