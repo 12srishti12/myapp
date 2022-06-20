@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <tr>
+        <form id="frontpage" action="/frontpage/add" method="post">
+            <label for="num1">num1:</label><br>
+            <input type="number" id="num2" name="num1" value=""><br>
+            <label for="num2">num2:</label><br>
+            <input type="number" id="num1" name="num2" value=""><br><br>
+            <label for="num3">answer:</label><br>
+            <input type="text" name="num3" id="num3" readonly placeholder="Answer" value"{{c}}">
+            <button id="add" type="submit">ADD</button>
+            <button id="sub" type="submit" formaction="/sub">sub</button>
+            <button id="multi" type="submit" formaction="/multi">multi</button>
+        </form>
+    </tr>
+  <script>
+        $("#add").click(function(){
+    $.ajax({url:"/frontpage/add",success:function()
+        });
+        $("#sub").click(function(){
+    $.ajax({url:"/frontpage/sub",success:function()
+    });
+        $("#calca").click(function(){
+    $.ajax({url:"/frontpage/multi",success:function()
+    });
+  </script>  
+</body>
+</html>
