@@ -10,25 +10,29 @@
     <tr>
         <form id="frontpage" action="/frontpage/add" method="post">
             <label for="num1">num1:</label><br>
-            <input type="number" id="num2" name="num1" value=""><br>
+            <input type="number" id="num1" name="num1" value=""><br>
             <label for="num2">num2:</label><br>
-            <input type="number" id="num1" name="num2" value=""><br><br>
+            <input type="number" id="num2" name="num2" value=""><br><br>
             <label for="num3">answer:</label><br>
-            <input type="text" name="num3" id="num3" readonly placeholder="Answer" value"{{c}}">
+            <input type="number" name="num3" id="num3" readonly placeholder="Answer" value="{{c}}">
             <button id="add" type="submit">ADD</button>
-            <button id="sub" type="submit" formaction="/sub">sub</button>
-            <button id="multi" type="submit" formaction="/multi">multi</button>
+            <button id="sub" type="submit" formaction="/frontpage/sub">sub</button>
+            <button id="multi" type="submit" formaction="/frontpage/multi">multi</button>
         </form>
     </tr>
   <script>
         $("#add").click(function(){
-    $.ajax({url:"/frontpage/add",success:function()
+    $.ajax({url:"/frontpage/add",success:function(c)
+        console.log(c)
+        });
         });
         $("#sub").click(function(){
-    $.ajax({url:"/frontpage/sub",success:function()
+    $.ajax({url:"/frontpage/sub",success:function(c)
     });
+        });
         $("#calca").click(function(){
-    $.ajax({url:"/frontpage/multi",success:function()
+    $.ajax({url:"/frontpage/multi",success:function(c)
+    });
     });
   </script>  
 </body>
